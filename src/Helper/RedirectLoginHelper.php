@@ -309,6 +309,7 @@ class RedirectLoginHelper
      */
     private function getInput($key)
     {
-        return $_GET[$key] ?? null;
+        //return $_GET[$key] ?? null;
+        return request($key);
     }
 }
