@@ -310,6 +310,8 @@ class RedirectLoginHelper
     private function getInput($key)
     {
         //return $_GET[$key] ?? null;
-        return request($key);
+        $request = \Illuminate\Http\Request::capture();
+        
+        return $request->get($key);
     }
 }
