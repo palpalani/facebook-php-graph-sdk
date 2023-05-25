@@ -31,6 +31,7 @@ use Facebook\PersistentData\SessionPersistentDataHandler;
 use Facebook\Url\UrlDetectionHandler;
 use Facebook\Url\UrlDetectionInterface;
 use Facebook\Url\UrlManipulator;
+use Illuminate\Support\Facades\Request;
 
 class RedirectLoginHelper
 {
@@ -309,9 +310,7 @@ class RedirectLoginHelper
      */
     private function getInput($key)
     {
-        //return $_GET[$key] ?? null;
-        $request = \Illuminate\Http\Request::capture();
-        
-        return $request->get($key);
+        //return $_GET[$key] ?? null;        
+        return Request::query($key);
     }
 }
