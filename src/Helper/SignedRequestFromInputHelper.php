@@ -28,6 +28,7 @@ use Facebook\Authentication\AccessToken;
 use Facebook\Authentication\OAuth2Client;
 use Facebook\Client;
 use Facebook\SignedRequest;
+use Illuminate\Support\Facades\Request;
 
 abstract class SignedRequestFromInputHelper
 {
@@ -137,8 +138,11 @@ abstract class SignedRequestFromInputHelper
      */
     public function getRawSignedRequestFromPost()
     {
-        if (isset($_POST['signed_request'])) {
-            return $_POST['signed_request'];
+        //if (isset($_POST['signed_request'])) {
+        //    return $_POST['signed_request'];
+        //}
+        if (Request::input('signed_request')) {
+            return Request::input('signed_request');
         }
 
         return null;
