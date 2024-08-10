@@ -158,7 +158,7 @@ abstract class SignedRequestFromInputHelper
         //if (isset($_COOKIE['fbsr_'.$this->app->getId()])) {
         //    return $_COOKIE['fbsr_'.$this->app->getId()];
         //}
-        if(isset(Request::cookie('fbsr_'.$this->app->getId()))) {
+        if(Request::cookie('fbsr_'.$this->app->getId())) {
             return Request::cookie('fbsr_'.$this->app->getId());
         }
 
